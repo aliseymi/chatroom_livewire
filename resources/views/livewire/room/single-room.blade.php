@@ -14,33 +14,11 @@
                 </ul>
             </div>
             <div class="w-9/12 flex flex-col justify-between">
-                @if($messages->count())
-                    <div class="divide-y space-y-2 overflow-y-scroll" style="max-height: 500px;">
-                        @foreach($messages as $message)
-                            <div class="pt-2">
-                                <div>
-                                    <span class="font-bold border-r border-gray-200 pr-2 mr-1">{{ $message->user->name }}</span>
-                                    <span class="text-gray-400">{{ \Carbon\Carbon::parse($message->create_at)->ago() }}</span>
-                                </div>
-                                <p>
-                                    {{ $message->body }}
-                                </p>
-                            </div>
-                        @endforeach
-                    </div>
-                @else
-                    <div class="text-gray-400">
-                        Waiting For First Message
-                    </div>
-                @endif
+                <livewire:room.messages :messages="$messages"/>
 
-                {{--                <div class="text-gray-400">--}}
-                {{--                    Waiting For First Message--}}
-                {{--                </div>--}}
-                <div class="flex items-start space-x-3">
-                    <textarea class="rounded-md p-2 shadow-sm border-gray-300 w-full" placeholder="Your Message" name="message" rows="2" widht="100%"></textarea>
-                    <button class="bg-blue-500 text-white rounded p-2 px-4">send</button>
-                </div>
+{{--                send message section--}}
+                <livewire:room.new-message :room="$room"/>
+
             </div>
         </div>
     </div>
