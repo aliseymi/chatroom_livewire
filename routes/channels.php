@@ -20,3 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('room-added', function () {
     return auth()->user();
 });
+
+Broadcast::channel('room.chat.{room}', function () {
+    return auth()->user();
+});

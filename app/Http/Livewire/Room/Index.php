@@ -9,7 +9,7 @@ class Index extends Component
 {
     protected $listeners = [
         'room-added' => '$refresh',
-        'echo-private:room-added,RoomAdded' => '$refresh'
+        'echo-private:room-added,Room\\RoomAdded' => '$refresh'
     ];
 
     public function render()

@@ -14,7 +14,7 @@
                 </ul>
             </div>
             <div class="w-9/12 flex flex-col justify-between">
-                <livewire:room.messages :messages="$messages"/>
+                <livewire:room.messages :room="$room" :messages="$messages"/>
 
 {{--                send message section--}}
                 <livewire:room.new-message :room="$room"/>

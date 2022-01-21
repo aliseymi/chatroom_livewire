@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Room;
 
+use App\Events\Room\MessageAdded;
 use App\Models\Room;
 use Livewire\Component;
 
@@ -24,6 +25,8 @@ class NewMessage extends Component
         ]);
 
         $this->emit('message.added', $message->id);
+
+        broadcast(new MessageAdded($this->room->id, $message->id))->toOthers();
 
         $this->message = '';
     }
