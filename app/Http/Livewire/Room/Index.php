@@ -8,7 +8,8 @@ use Livewire\Component;
 class Index extends Component
 {
     protected $listeners = [
-        'room-added' => '$refresh'
+        'room-added' => '$refresh',
+        'echo-private:room-added,RoomAdded' => '$refresh'
     ];
 
     public function render()

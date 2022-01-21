@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Room;
 
+use App\Events\RoomAdded;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -23,6 +24,8 @@ class CreateRoom extends Component
         ]);
 
         $this->emit('room-added');
+
+        broadcast(new RoomAdded())->toOthers();
 
         $this->name = '';
     }
