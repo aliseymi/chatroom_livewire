@@ -18,9 +18,11 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel('room-added', function () {
-    return auth()->user();
+    return true;
 });
 
-Broadcast::channel('room.chat.{room}', function () {
-    return auth()->user();
+Broadcast::channel('room.chat.{room}', function ($user) {
+    return Arr::only($user->toArray(), [
+        'id', 'name'
+    ]);
 });

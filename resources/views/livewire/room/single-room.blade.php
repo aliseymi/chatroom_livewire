@@ -5,13 +5,7 @@
         </div>
         <div class="flex h-full">
             <div class="w-3/12 h-full border-r border-gray-200 mr-4">
-                <div class="pb-2">
-                    <h3 class="text-xl font-bold">users</h3>
-                </div>
-                <ul>
-                    <li>hesam</li>
-                    <li>ali</li>
-                </ul>
+                <livewire:room.users :room="$room"/>
             </div>
             <div class="w-9/12 flex flex-col justify-between">
                 <livewire:room.messages :room="$room" :messages="$messages"/>
