@@ -6,5 +6,4 @@
     </div>
     <button type="submit" class="bg-blue-500 text-white rounded p-2 px-4">send</button>
 
-
 </form>
